@@ -468,7 +468,7 @@ class Application : Callable<Int> {
                 .addIncludesToGraph(loadIncludes)
                 .debugParser(DEBUG_PARSER)
                 .useUnityBuild(useUnityBuild)
-                .useParallelPasses(false)
+                .useParallelPasses(true)
 
         topLevel?.let { translationConfiguration.topLevel(it) }
 

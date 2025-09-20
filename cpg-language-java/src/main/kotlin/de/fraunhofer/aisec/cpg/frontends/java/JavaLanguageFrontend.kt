@@ -107,6 +107,12 @@ open class JavaLanguageFrontend(ctx: TranslationContext, language: Language<Java
         // load in the file
         return try {
             val parserConfiguration = ParserConfiguration()
+            // See if see some speed up when turning off the storing of tokens and lexical.
+            parserConfiguration.setStoreTokens(false)
+            parserConfiguration.setLexicalPreservationEnabled(false)
+            parserConfiguration.setAttributeComments(false)
+            // end speed up
+
             parserConfiguration.setSymbolResolver(javaSymbolResolver)
             val parser = JavaParser(parserConfiguration)
 
